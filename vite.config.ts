@@ -12,7 +12,7 @@ export default defineConfig({
       manifest: {
         name: "Snake Game",
         short_name: "Snake",
-        start_url: "/",
+        start_url: "/snake-game-react/",
         display: "standalone",
         background_color: "#0f172a",
         theme_color: "#8B5CF6",
