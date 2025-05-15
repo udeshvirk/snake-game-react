@@ -1,0 +1,69 @@
+# Node modules
+node_modules
+
+# Build output
+dist
+build
+
+# Vite cache
+.vite
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependency directories
+jspm_packages/
+
+# Editor directories and files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS generated files (macOS)
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Env files
+.env
+.env.*
+
+# Coverage directory
+coverage
+
+# Misc
+*.log
+*.local
+
+# Optional npm cache directory
+.npm
+
+# Parcel cache
+.cache
+
+# SASS cache
+.sass-cache
+
+# Yarn Integrity file
+.yarn-integrity
+
+# Next.js build output
+.next
+
+# Storybook build outputs
+.out
+.storybook-out

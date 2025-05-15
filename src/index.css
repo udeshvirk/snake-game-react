@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@theme {  
+  --color-game-bg:  #1A1F2C;
+  --color-snake-head: #8B5CF6;
+  --color-snake-body: #9b87f5;
+  --color-food: #F97316;
+  --color-grid-border: #2D3748;
+
+  --animate-pulse-soft: pulse-soft 2s ease-in-out infinite;
+  @keyframes pulse-soft {
+    0% {
+      opacity: 1;
+    }
+     50% {
+      opacity: 0.8;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+*{
+  box-sizing: border-box;
+}
+
+body{
+  height: 100vh;
+  width: 100vw;
+}
