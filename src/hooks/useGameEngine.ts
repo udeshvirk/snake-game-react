@@ -85,8 +85,19 @@ export function useGameEngine() {
   // Keyboard Controls
   const handleKey = useCallback(
     (e: KeyboardEvent) => {
-      setNewDirection(e.key);
-      e.preventDefault();
+      const handledKeys = [
+        "ArrowUp",
+        "ArrowDown",
+        "ArrowLeft",
+        "ArrowRight",
+        " ",
+        "r",
+        "R",
+      ];
+      if (handledKeys.includes(e.key)) {
+        setNewDirection(e.key);
+        e.preventDefault();
+      }
     },
     [setNewDirection]
   );
