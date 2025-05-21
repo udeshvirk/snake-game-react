@@ -31,9 +31,11 @@ export function useGameEngine() {
   const dispatch = useDispatch();
   const game = useSelector(selectGame);
   const intervalRef = useRef<number | null>(null);
+  const directionQueue = useRef<Direction[]>([]);
 
   const reset = useCallback(() => {
     dispatch(resetGame());
+    directionQueue.current = [];
   }, [dispatch]);
 
   const toggleGame = useCallback(() => {
@@ -42,19 +44,25 @@ export function useGameEngine() {
 
   const setNewDirection = useCallback(
     (newDirection: string) => {
-      if (isValidDirectionChange(game.direction, newDirection)) {
+      // Get the last direction in the queue or current direction
+      const lastDirection =
+        directionQueue.current.length > 0
+          ? directionQueue.current[directionQueue.current.length - 1]
+          : game.direction;
+
+      if (isValidDirectionChange(lastDirection, newDirection)) {
         switch (newDirection) {
           case "ArrowUp":
-            dispatch(setDirection(Direction.UP));
+            directionQueue.current.push(Direction.UP);
             break;
           case "ArrowDown":
-            dispatch(setDirection(Direction.DOWN));
+            directionQueue.current.push(Direction.DOWN);
             break;
           case "ArrowLeft":
-            dispatch(setDirection(Direction.LEFT));
+            directionQueue.current.push(Direction.LEFT);
             break;
           case "ArrowRight":
-            dispatch(setDirection(Direction.RIGHT));
+            directionQueue.current.push(Direction.RIGHT);
             break;
           case " ":
             dispatch(togglePause());
@@ -62,6 +70,7 @@ export function useGameEngine() {
           case "r":
           case "R":
             dispatch(resetGame());
+            directionQueue.current = [];
             break;
         }
       }
@@ -75,6 +84,10 @@ export function useGameEngine() {
 
     if (intervalRef.current) clearInterval(intervalRef.current);
     intervalRef.current = window.setInterval(() => {
+      // Apply the next direction in the queue if available
+      if (directionQueue.current.length > 0) {
+        dispatch(setDirection(directionQueue.current.shift()!));
+      }
       dispatch(moveSnake());
       dispatch(checkCollision());
       dispatch(eatFood());
