@@ -1,6 +1,12 @@
 import { selectGame } from "@/store/gameSlice";
 import React from "react";
 import { useSelector } from "react-redux";
+import {
+  ArrowUpIcon,
+  ArrowDownIcon,
+  ArrowLeftIcon,
+  ArrowRightIcon,
+} from "@/icons/ArrowIcons";
 interface GameControlsProps {
   reset: () => void;
   toggleGame: () => void;
@@ -48,88 +54,32 @@ const GameControls: React.FC<GameControlsProps> = ({
       <div className="flex flex-col items-center gap-3 xl:hidden">
         <button
           onClick={() => handleButtonClick("ArrowUp")}
-          className="w-16 h-16 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-3xl shadow-lg"
+          className="w-14 h-14 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-3xl shadow-lg"
           aria-label="Up"
         >
-          {/* Up Arrow SVG */}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-8 h-8 text-white"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 19V5m0 0l-7 7m7-7l7 7"
-            />
-          </svg>
+          <ArrowUpIcon />
         </button>
         <div className="flex gap-6">
           <button
             onClick={() => handleButtonClick("ArrowLeft")}
-            className="w-16 h-16 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-3xl shadow-lg"
+            className="w-14 h-14 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-3xl shadow-lg"
             aria-label="Left"
           >
-            {/* Left Arrow SVG */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-8 h-8 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M19 12H5m0 0l7-7m-7 7l7 7"
-              />
-            </svg>
+            <ArrowLeftIcon />
           </button>
           <button
             onClick={() => handleButtonClick("ArrowDown")}
-            className="w-16 h-16 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-3xl shadow-lg"
+            className="w-14 h-14 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-3xl shadow-lg"
             aria-label="Down"
           >
-            {/* Down Arrow SVG */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-8 h-8 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 5v14m0 0l7-7m-7 7l-7-7"
-              />
-            </svg>
+            <ArrowDownIcon />
           </button>
           <button
             onClick={() => handleButtonClick("ArrowRight")}
-            className="w-16 h-16 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-3xl shadow-lg"
+            className="w-14 h-14 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center text-3xl shadow-lg"
             aria-label="Right"
           >
-            {/* Right Arrow SVG */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-8 h-8 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 12h14m0 0l-7-7m7 7l-7 7"
-              />
-            </svg>
+            <ArrowRightIcon />
           </button>
         </div>
       </div>
